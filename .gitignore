@@ -1,0 +1,47 @@
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env.local
+frontend/.env.production
+frontend/.env.development
+frontend/.vercel/
+frontend/dist/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Backend
+backend/vendor/
+backend/storage/*.key
+backend/storage/framework/*
+backend/storage/logs/*
+!backend/storage/.gitignore
+backend/.env
+backend/.phpunit.result.cache
+backend/node_modules/
+backend/public/storage
+backend/.vscode/
+backend/.idea/
+backend/composer.lock
+
+# Common Files
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+*.swp
+*.tmp
+*.lock
+*.cache
+*.pid
+*.seed
+*.cover
+*.editorconfig
+
+# System Files
+.vscode/
+.idea/
+*.iml
+*.suo
+*.DS_Store
