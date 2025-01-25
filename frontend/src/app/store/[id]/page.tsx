@@ -1,20 +1,33 @@
 import Container from "@/components/Container";
+import { IProductItemProps } from "@/components/ProductItem";
 import React from "react";
 
-const Product = () => {
+interface IProductProps {
+  params: Promise<{ id: string }>;
+}
+
+async function Product({ params }: IProductProps) {
+  const { id } = await params;
+
+  const result = await fetch(`http://localhost:3004/products/${id}`);
+  const data = (await result.json()) as IProductItemProps;
+
   return (
     <Container>
       <div className="grid grid-cols-12 mt-8 shadow-md">
-        <div>
-          <h2 className="font-bold text-2xl">محصول اول</h2>
+        <div className="col-span-3">
+          <img
+            src={data.image}
+            alt="product"
+          />
+        </div>
+        <div className="col-span-9">
+          <h2 className="font-bold text-2xl">{data.title}</h2>
 
-          <p>
-            توضیحات محصول توضیحات محصول توضیحات محصول توضیحات محصول توضیحات
-            محصول توضیحات محصول توضیحات محصول
-          </p>
+          <p>{data.description}</p>
 
           <p className="font-bold">
-            فیمت: <span>20$</span>
+            قیمت: <span>{data.price}$</span>
           </p>
 
           <div className="mt-4">
@@ -27,16 +40,9 @@ const Product = () => {
             </button>
           </div>
         </div>
-
-        <div className="col-span-3">
-          <img
-            src="https://m.media-amazon.com/images/I/61LdecwlWYL.jpg"
-            alt="product"
-          />
-        </div>
       </div>
     </Container>
   );
-};
+}
 
 export default Product;
