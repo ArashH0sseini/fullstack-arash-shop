@@ -5,30 +5,33 @@ import React from "react";
 import Container from "./Container";
 
 const Navbar = () => {
+
   const pathname = usePathname();
 
   const navLinks = [
     {
       href: "/",
-      title: "Home",
+      title: 'صفحه اصلی',
     },
     {
       href: "/store",
-      title: "Store",
-    },
+      title: "فروشگاه",
+    }
   ];
   return (
     <nav className="shadow p-4">
       <Container>
+        <div>
         {navLinks.map((item) => (
           <Link
-            className={`mr-4 ${pathname === item.href ? "text-sky-400" : ""} `}
-            key={item.href}
-            href={item.href}
+          className={`mr-4 ${pathname === item.href ? "text-sky-400" : ""} `}
+          key={item.href}
+          href={item.href}
           >
             {item.title}
           </Link>
         ))}
+        </div>
       </Container>
     </nav>
   );
