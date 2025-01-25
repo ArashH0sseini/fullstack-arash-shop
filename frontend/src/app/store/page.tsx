@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "@/components/Container";
 import ProductItem from "@/components/ProductItem";
+import Link from "next/link";
 
 const Store = () => {
   const data = [
@@ -21,7 +22,8 @@ const Store = () => {
     },
     {
       id: "3",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTXbuFS1ErinLrTvKjdFafPEwcfcc4qcaCMw&s",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTXbuFS1ErinLrTvKjdFafPEwcfcc4qcaCMw&s",
       title: "محصول سه",
       description: "توضیحات محصول توضیحات محصول توضیحات محصول",
       price: 46,
@@ -41,7 +43,9 @@ const Store = () => {
 
       <div className="grid grid-cols-4 gap-4">
         {data.map((item) => (
-          <ProductItem key={item.id} {...item} />
+          <Link key={item.id} href={`/store/${item.id}`}>
+            <ProductItem  {...item} />
+          </Link>
         ))}
       </div>
     </Container>
