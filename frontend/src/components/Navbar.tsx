@@ -11,7 +11,7 @@ const Navbar = () => {
   const navLinks = [
     {
       href: "/",
-      title: 'صفحه اصلی',
+      title: 'صفحه اصلی ',
     },
     {
       href: "/store",
@@ -21,6 +21,7 @@ const Navbar = () => {
   return (
     <nav className="shadow p-4">
       <Container>
+        <div className="flex justify-between">
         <div>
         {navLinks.map((item) => (
           <Link
@@ -31,6 +32,12 @@ const Navbar = () => {
             {item.title}
           </Link>
         ))}
+        </div>
+
+<div>
+  <Link href="/cart">سبد خرید</Link>
+</div>
+        
         </div>
       </Container>
     </nav>
